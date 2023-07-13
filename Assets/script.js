@@ -44,6 +44,7 @@
 var APIKey = "efb07af6a99214059c7511ed2b15133e";
 var searchButton = document.getElementById('search-button');
 var listHistory = document.getElementById('history');
+var currentDayList = document.getElementById("currentDay");
 
 searchButton.addEventListener('click', getCity);
 searchButton.addEventListener('click', searchCity);
@@ -102,15 +103,28 @@ function getCoor(lat, lon) {
     })
     .then(function (data) {
       console.log(data);
-      var temp = (data.list[0].main.temp);
-      var humidity = (data.list[0].main.humidity);
-      var humidity = (data.list[0].weather[0].description);
-      var wind = (data.list[0].wind.speed);
-      var date = (data.list[0].dt_txt);
-      var place = (data.city.name);
+      var place = document.getElementById("cityname");
+      var temp = document.createElement("li");
+      var humidity = document.createElement("li");
+      var descr = document.createElement("li");
+      var wind= document.createElement("li");
+      var date = document.createElement("li");
+      
+      place.textContent = (data.city.name);
+      temp.textContent = "Temperature: "+(data.list[0].main.temp)+ "k";
+      humidity.textContent = "Humidity: " +(data.list[0].main.humidity)+ "%";
+      descr.textContent = "Forecast: "+(data.list[0].weather[0].description);
+      wind.textContent = "Wind: "+(data.list[0].wind.speed)+ "mph";
+      date.textContent = "Date: "+(data.list[0].dt_txt);
+      
+      // var li = document.createElement("button");
+      currentDayList.appendChild(place);
+      currentDayList.appendChild(temp);
+      currentDayList.appendChild(humidity);
+      currentDayList.appendChild(descr);
+      currentDayList.appendChild(wind);
+      currentDayList.appendChild(date);
       console.log(temp,humidity,wind,date,place);
-      // 287.85 84 9.08 '2023-07-13 03:00:00'
-      // var temp =(data.);
     })
 }; 
 

@@ -15,23 +15,28 @@
   </header>
 
   <main class="row justify-space-between">
+    <!-- user input and search button -->
     <div class="col-3">
-      <label for="search" class="search-label">Search for a City:</label>
+      <label for="search" class="search-label">Enter a City</label>
       <input type="text" class="form-control" id="userInput" placeholder="type here">
       <button type="button" class="btn btn-primary" id="search-button">Search</button>
       <hr class="mt-1 mb-1"/>
     </div>
     
+    <!-- current day -->
     <div class="col-9 card">
       <h2>TODAY</h2>
+      <h3 id="cityname"></h3>
       <ul id="currentDay"></ul>
     </div>
 
+    <!-- search history -->
     <div class="col-3">
-      <h4>SEARCH HISTORY:</h4>
-      <ul id="history" ></ul>
+      <h6>SEARCH HISTORY:</h6>
+      <ul id="history"></ul>
     </div>
     
+    <!-- cards bootstr5 day weather forecast -->
 <div class="col-9">
     <h2>5-Day Forecast:</h2>
     <div class="card-group">
